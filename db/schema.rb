@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_31_195608) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_31_210021) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "commentable_type", null: false
@@ -20,6 +20,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_195608) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "event_participants", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_participants_on_event_id"
+    t.index ["user_id"], name: "index_event_participants_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "content"
+    t.datetime "start_date_time"
+    t.datetime "end_date_time"
+    t.integer "guests"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -62,6 +83,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_195608) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "event_participants", "events"
+  add_foreign_key "event_participants", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
 end
