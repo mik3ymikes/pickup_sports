@@ -9,5 +9,7 @@ class Event < ApplicationRecord
 
   has_many :event_participants
   has_many :users, through: :event_participants
+
+  has_and_belongs_to_many :sports
 end
 
