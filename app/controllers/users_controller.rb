@@ -37,12 +37,18 @@ before_action :set_user, only:[:show, :update, :destroy]
   end
   end
 
+  def posts_index
+    user=User.find(params[:user_id])
+   user_posts=user.posts
+
+   render json: user_posts, status: :ok
+  end
 
 
   private
 
   def set_user
-    @user=User.find(params[:id])
+    @user=User.find(params[:id] )
   end
 
   def user_params
