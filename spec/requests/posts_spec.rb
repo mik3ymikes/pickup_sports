@@ -71,7 +71,7 @@ RSpec.describe "Posts", type: :request do
       before do
         post_attributes = attributes_for(:post, content: "updated content")
         put "/posts/#{post.id}", params: post_attributes
-        post.reload
+        # post.reload
       end
 
       it "updates a post" do
