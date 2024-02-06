@@ -13,5 +13,5 @@ resources :users do
 get 'posts' , to: "users#posts_index"
 end
 
-resources :posts, only: [:create, :update, :destroy]
+resources :posts
 end
