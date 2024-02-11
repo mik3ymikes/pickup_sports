@@ -9,7 +9,7 @@ before_action :authenticate_request, only: [:index, :show, :update, :destroy]
   end
 
   def show
-    render json: @user, status: 200
+    render json: UserBlueprint.render(@user, view: :normal), status: 200
   end
 
   def create
