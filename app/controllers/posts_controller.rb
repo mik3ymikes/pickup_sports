@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     
     
       def create
-       post=Post.new(post_params)
+       post=@current_user.posts.new(post_params)
 
        if post.save
         render json: post, status: :created
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
       end
     
       def post_params
-        params.permit(:content, :user_id)
+        params.permit(:content)
       end
     end
     
