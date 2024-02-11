@@ -10,7 +10,7 @@ class UserBlueprint < Blueprinter::Base
     view :profile do
         association :location, blueprint: LocationBlueprint
         association :posts, blueprint: PostBlueprint, view: :profile do |user, options|
-            user.posts.order(create_at: :desc).limit(5)
+            user.posts.order(created_at: :desc).limit(5)
         end
 
         association :events, blueprint: EventBlueprint, view: :profile do |user, options|
