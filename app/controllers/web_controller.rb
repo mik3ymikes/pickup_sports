@@ -1,8 +1,9 @@
 class WebController < ApplicationController
-  before_action:authenticate_request
+  before_action :authenticate_request
+
   def bootstrap
 
-    render json:{
+    render json: {
       current_user: UserBlueprint.render_as_hash(@current_user, view: :me)
     }, status: :ok
   end
