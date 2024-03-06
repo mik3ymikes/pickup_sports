@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-   before_action :set_event, only: [:show, :update, :destroy]
+  
    before_action :authenticate_request, except: [:index]
     
     
@@ -58,6 +58,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-        params.permit(:title, :content, :start_date_time, :end_date_time, :guests, :sport_id=>[])
+        params.permit(:title, :content, :start_date_time, :end_date_time, :guests, :cover_image, :sport_id=>[])
     end
 end
