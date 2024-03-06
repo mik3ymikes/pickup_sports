@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+include Rails.application.routes.url_helpers
 
   has_one_attached :cover_image
 
@@ -29,6 +30,11 @@ class Event < ApplicationRecord
     if end_date_time < start_date_time
       errors.add(:end_date_time, "cant be before start date time")
     end
+  end
+
+  def cover_image_url
+    #url helpers
+    rails_blob_url(self.cover_image, only_path: false) if self.cover_image.attached?
   end
 end
 
