@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   
    before_action :authenticate_request, except: [:index]
-    
+   
     
     def index
         events=Event.order(created_at: :desc).page(params[:page]).per(12)
