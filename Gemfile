@@ -39,9 +39,10 @@ gem'kaminari'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 gem "rack-cors"
 
-# group :production do
-# gem 'pg'
-# end 
+group :production do
+#  gem 'pg'
+ gem 'cloudinary'
+end 
 
 group :development, :test do
 gem "sqlite3", "~> 1.4"
