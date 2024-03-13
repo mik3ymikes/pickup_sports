@@ -5,7 +5,7 @@ ruby "3.2.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 
-
+gem 'pusher'
 
 
 # Use the Puma web server [https://github.com/puma/puma]
