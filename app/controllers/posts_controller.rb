@@ -8,6 +8,7 @@ class PostsController < ApplicationController
       render json:posts, status: :ok
     end
     
+    
     def show
      render json: @post, status: :ok
     end
